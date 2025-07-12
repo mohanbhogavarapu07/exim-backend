@@ -115,10 +115,10 @@ export async function sendBlogToSubscribers(blog) {
     from: process.env.EMAIL_USER,
     bcc: emails, // BCC for privacy
     subject: `New Blog Update: ${blog.title}`,
-    text: `Check out our latest blog post: ${blog.title}\n\n${blog.description}\n\nRead more: ${process.env.FRONTEND_URL || 'https://yourdomain.com'}/blog/${blog.slug}`,
+    text: `Check out our latest blog post: ${blog.title}\n\n${blog.description}\n\nRead more: ${ 'https://exim.drehill.in'}/blog/${blog.slug}`,
     html: `<h2>${blog.title}</h2>
       <p>${blog.description}</p>
-      <p><a href="${process.env.FRONTEND_URL || 'https://yourdomain.com'}/blog/${blog.slug}">Read the full post</a></p>`
+      <p><a href="${'https://exim.drehill.in'}/blog/${blog.slug}">Read the full post</a></p>`
   };
   await transporter.sendMail(mailOptions);
 } 
